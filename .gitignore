@@ -1,0 +1,8 @@
+poetry.lock
+dist/
+
+__pycache__
+pipewire/*.[co]
+pipewire/*.so
+test_spa_plugin.[co]
+test_spa_plugin.so

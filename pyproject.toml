@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "pipewire"
+version = "0.0.0"
+description = "Unofficial Python bindings for PipeWire."
+authors = ["Quentin Wenger <matpi@protonmail.ch>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+
+[tool.poetry.dev-dependencies]
+# NOTE: keep in sync with build-system.requires!
+cffi = "^1.14.0"
+
+[tool.poetry.build]
+script = "build_pipewire.py"
+generate-setup-file = false
+
+[tool.poetry-dynamic-versioning]
+enable = true
+
+[tool.poetry-dynamic-versioning.substitution]
+files = ["pipewire/__init__.py"]
+
+[build-system]
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning", "cffi>=1.14.0"]
+build-backend = "poetry.core.masonry.api"
