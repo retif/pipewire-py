@@ -2,7 +2,10 @@ poetry.lock
 dist/
 
 __pycache__
+lextab.py
+yacctab.py
 pipewire/*.[co]
 pipewire/*.so
+pipewire/_cbs.py
 test_spa_plugin.[co]
 test_spa_plugin.so

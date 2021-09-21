@@ -3,7 +3,7 @@ import pipewire
 
 
 def main():
-    pipewire.libp.pw_init(pipewire.ffip.NULL, pipewire.ffip.NULL)
+    pipewire.lib.pw_init(pipewire.ffi.NULL, pipewire.ffi.NULL)
 
     print(f"pipewire version {pipewire.__version__}")
     print(f"Compiled with libpipewire {pipewire.__version_pipewire__}, API {pipewire.__version_pipewire_api__}")
