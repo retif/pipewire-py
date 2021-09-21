@@ -135,9 +135,7 @@ def build():
         "pw_mempool_add_listener",
         "pw_mempool_clear",
         "pw_mempool_destroy",
-        "pw_memblock_unref",
         "pw_mempool_remove_id",
-        "pw_map_range_init",
         "pw_data_loop_get_loop",
     ])
 
