@@ -117,9 +117,6 @@ def build():
         "PW_PERM_RWXM",
         "PW_PERM_ALL",
         "PW_PERM_INVALID",
-    ], exclude_macros=[
-        "SPA_AUDIO_LAYOUT_MPEG_1_0",
-        "SPA_AUDIO_LAYOUT_MPEG_2_0",
     ], exclude_funcs=[
         # NOTE: excluded b/c variadic and implemented as macros.
         "spa_log_error",
@@ -130,13 +127,6 @@ def build():
         "spa_log_log",
         "spa_log_trace_fp",
         "spa_system_ioctl",
-        # NOTE: excluded b/c not exported.
-        "pw_mempool_new",
-        "pw_mempool_add_listener",
-        "pw_mempool_clear",
-        "pw_mempool_destroy",
-        "pw_mempool_remove_id",
-        "pw_data_loop_get_loop",
     ])
 
     ffi_builder = FFI()
