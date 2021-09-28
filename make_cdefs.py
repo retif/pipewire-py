@@ -41,43 +41,12 @@ class Preprocessor(pcpp.Preprocessor):
             yield from super().include(tokens)
 
 
-# XXX: need a new release of pycparserext.
-class RangeExpression(pycparser.c_ast.Node):
-    def __init__(self, first, last, coord=None):
-        self.first = first
-        self.last = last
-        self.coord = coord
-
-    def children(self):
-        nodelist = []
-        if self.first is not None:
-            nodelist.append(("first", self.first))
-        if self.last is not None:
-            nodelist.append(("last", self.last))
-        return tuple(nodelist)
-
-    def __iter__(self):
-        if self.first is not None:
-            yield self.first
-        if self.last is not None:
-            yield self.last
-
-    attr_names = ()
-
-
 class Parser(pycparserext.ext_c_parser.GnuCParser):
     initial_type_symbols = pycparserext.ext_c_parser.GnuCParser.initial_type_symbols | set([
         "bool", "va_list", "FILE", "off_t",
         "int8_t", "uint8_t", "int16_t", "uint16_t", "int32_t", "uint32_t", "int64_t", "uint64_t",
         "intptr_t", "uintptr_t", "ptrdiff_t", "size_t", "ssize_t",
     ])
-    # NOTE: experimental support for case ranges, cf. https://github.com/inducer/pycparserext/issues/61.
-    def p_labeled_statement_4(self, p):
-        """ labeled_statement : CASE designator_internal COLON pragmacomp_or_statement """
-        p[0] = pycparser.c_ast.Case(p[2], [p[4]], self._token_coord(p, 1))
-    def p_range_designator_internal(self, p):
-        """ designator_internal : constant_expression ELLIPSIS constant_expression """
-        p[0] = RangeExpression(p[1], p[3], coord=self._coord(p.lineno(1)))
 
 
 def has_va_list_arg(n):

@@ -23,5 +23,5 @@ enable = true
 files = ["pipewire/__init__.py"]
 
 [build-system]
-requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning", "cffi>=1.14.0", "pcpp~=1.22", "pkgconfig~=1.5.5", "pycparserext~=2020.1"]
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning", "cffi>=1.14.0", "pcpp~=1.22", "pkgconfig~=1.5.5", "pycparserext>=2021.1"]
 build-backend = "poetry.core.masonry.api"
