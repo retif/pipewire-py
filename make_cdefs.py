@@ -83,7 +83,6 @@ class Generator(pycparserext.ext_c_generator.GnuCGenerator):
 def make_cdefs(src, lib, exclude_files=[], include_macros_integers=[], include_macros_strings=[], exclude_macros=[], exclude_funcs=[]):
     p = Preprocessor(exclude_files=exclude_files, include_macros_integers=include_macros_integers, include_macros_strings=include_macros_strings)
 
-    #d = pkgconfig.parse("libpipewire-0.3")
     d = pkgconfig.parse(lib)
     for include_dir in d["include_dirs"]:
         p.add_path(include_dir)
@@ -97,7 +96,6 @@ def make_cdefs(src, lib, exclude_files=[], include_macros_integers=[], include_m
             p.define(f"PRI{i}{n}")
             p.define(f"SCN{i}{n}")
     p.define("va_arg(...) (0)")
-    #p.parse("#include <pipewire/pipewire.h>")
     p.parse(src)
 
     s = io.StringIO()
