@@ -42,11 +42,11 @@ class Preprocessor(pcpp.Preprocessor):
 
 
 class Parser(pycparserext.ext_c_parser.GnuCParser):
-    initial_type_symbols = pycparserext.ext_c_parser.GnuCParser.initial_type_symbols | set([
+    initial_type_symbols = pycparserext.ext_c_parser.GnuCParser.initial_type_symbols | {
         "bool", "va_list", "FILE", "off_t",
         "int8_t", "uint8_t", "int16_t", "uint16_t", "int32_t", "uint32_t", "int64_t", "uint64_t",
         "intptr_t", "uintptr_t", "ptrdiff_t", "size_t", "ssize_t",
-    ])
+    }
 
 
 def has_va_list_arg(n):
