@@ -125,8 +125,11 @@ def build():
         "spa_log_debug",
         "spa_log_trace",
         "spa_log_log",
+        "spa_log_logt",
         "spa_log_trace_fp",
         "spa_system_ioctl",
+        "pw_stream_get_time",
+        "pw_filter_get_time"
     ])
 
     ffi_builder = FFI()
