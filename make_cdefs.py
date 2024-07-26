@@ -32,20 +32,20 @@ class Preprocessor(pcpp.Preprocessor):
             else:
                 print("Macro with arguments:", "".join(token.value for token in tokens))
         super().define(tokens)
-    def include(self, tokens):
+    def include(self, tokens, original_line):
         if tokens and tokens[0].value == "<" and tokens[1].value not in ("pipewire", "spa"):
             return
         elif tokens and tokens[1].value and "".join(token.value for token in tokens[1:-1]) in self.exclude_files:
             return
         else:
-            yield from super().include(tokens)
+            yield from super().include(tokens, original_line)
 
 
 class Parser(pycparserext.ext_c_parser.GnuCParser):
     initial_type_symbols = pycparserext.ext_c_parser.GnuCParser.initial_type_symbols | {
         "bool", "va_list", "FILE", "off_t",
         "int8_t", "uint8_t", "int16_t", "uint16_t", "int32_t", "uint32_t", "int64_t", "uint64_t",
-        "intptr_t", "uintptr_t", "ptrdiff_t", "size_t", "ssize_t",
+        "intptr_t", "uintptr_t", "ptrdiff_t", "size_t", "ssize_t", "locale_t",
     }
 
 
@@ -100,7 +100,7 @@ def make_cdefs(src, lib, exclude_files=[], include_macros_integers=[], include_m
 
     s = io.StringIO()
     p.write(s)
-
+    
     ast = Parser().parse(s.getvalue())
 
     g = Generator(exclude_funcs=exclude_funcs)
