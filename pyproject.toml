@@ -1,12 +1,18 @@
 [tool.poetry]
 name = "pipewire"
-version = "0.0.0"
+version = "0.0.1"
 description = "Unofficial Python bindings for PipeWire."
 authors = ["Quentin Wenger <matpi@protonmail.ch>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.6"
+python = "^3.8"
+pkgconfig = "^1"
+setuptools = "^71"
+pcpp = "^1"
+ply = "^3"
+pycparser = "^2"
+pycparserext = "*"
 
 [tool.poetry.dev-dependencies]
 # NOTE: keep in sync with build-system.requires!
