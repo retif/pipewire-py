@@ -9,14 +9,14 @@ license = "MIT"
 python = "^3.8"
 pkgconfig = "^1"
 setuptools = "^71"
+cffi = "^1"
 pcpp = "^1"
 ply = "^3"
 pycparser = "^2"
 pycparserext = "*"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 # NOTE: keep in sync with build-system.requires!
-cffi = "^1.14.0"
 
 [tool.poetry.build]
 script = "build.py"
