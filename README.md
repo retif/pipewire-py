@@ -1,8 +1,8 @@
 ## Overview
 
-Pipewire-py is a project created to generate python bindings for libpipewire-0.3 C library.
+Pipewire-py is a project created to generate python bindings for [libpipewire](https://gitlab.freedesktop.org/pipewire/pipewire) C library.
 
-It is using [pcpp](https://pypi.org/project/pcpp/), [pycparserext](https://pypi.org/project/pycparserext/) and [cffi](https://pypi.org/project/cffi/) to preprocess, parse C headers and provice python binding. 
+It is using [pcpp](https://pypi.org/project/pcpp/), [pycparserext](https://pypi.org/project/pycparserext/) and [cffi](https://pypi.org/project/cffi/) to preprocess, parse C headers and provide python binding. 
 
 ## OS package dependency:
 needs to be installed by hand
