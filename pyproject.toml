@@ -12,15 +12,8 @@ setuptools = "^71"
 cffi = "^1"
 pcpp = "^1"
 ply = "^3"
+pycparserext = { git = "https://github.com/retif/pycparserext.git", branch = "main", develop = true }
 pycparser = "^2"
-pycparserext = "*"
-
-[tool.poetry.group.dev.dependencies]
-# NOTE: keep in sync with build-system.requires!
-
-[tool.poetry.build]
-script = "build.py"
-generate-setup-file = false
 
 [tool.poetry-dynamic-versioning]
 enable = true
@@ -28,6 +21,3 @@ enable = true
 [tool.poetry-dynamic-versioning.substitution]
 files = ["pipewire/__init__.py"]
 
-[build-system]
-requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning", "cffi>=1.14.0", "pcpp~=1.22", "pkgconfig~=1.5.5", "pycparserext>=2021.1"]
-build-backend = "poetry.core.masonry.api"

@@ -9,6 +9,11 @@ needs to be installed by hand
 
 > libpipewire-0.3-dev
 
+## Install
+
+> poetry install
+> poetry run python build.py
+
 ## Examples
 Python examples based on original [API Tutorial
 ](https://docs.pipewire.org/page_tutorial.html)
